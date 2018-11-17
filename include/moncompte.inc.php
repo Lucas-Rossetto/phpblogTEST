@@ -10,13 +10,9 @@
             }
 //                    $welcome .= " Nombre de visites = " . $_COOKIE['visite'];
             $nom     = $_SESSION['auth']['USERNAME'];
-            $prenom  = $_SESSION['auth']['USERFNAME'];
-            $mail    = $_SESSION['auth']['USERMAIL'];
-            $pseudo  = $_SESSION['auth']['PSEUDO'];
-            $dateins = $_SESSION['auth']['USERDATEINS'];
             $id_user = $_SESSION['auth']['ID_USER'];
         } else {
-            echo '<script>redirection("index.php?page=default")</script>';
+            echo header('Location: index.php?page=default');
             exit();
         }
         ?>
@@ -36,21 +32,6 @@
                 <td class="lbl">Nom&nbsp;</td>
                 <td><?= $nom ?></td>
                 <td><?=$id_user?></td>
-            </tr>
-            <tr>
-                <td class="lbl">Prénom&nbsp;</td>
-                <td><?= $prenom ?></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td class="lbl">Pseudo &nbsp;</td>
-                <td><?= $pseudo ?></td>
-                <td><a class="edit-item" href="index.php?page=change&amp;id=<?= $id_user ?>"><i class="fa fa-pencil" aria-hidden="true"></i><div class="tooltip">/div></a></td>
-            </tr>
-            <tr>
-                <td class="lbl">Email&nbsp;</td>
-                <td><?= $mail ?></td>
-                <td><a class="edit-item" href="index.php?page=change&amp;id=<?= $id_user ?>"><i class="fa fa-pencil" aria-hidden="true"></i><div class="tooltip">/div></a></td
             </tr>
             <tr>
                 <td class="lbl">Date de création du compte</td>

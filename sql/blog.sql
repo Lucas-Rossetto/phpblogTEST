@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 16 nov. 2018 à 09:53
+-- Généré le :  sam. 17 nov. 2018 à 21:30
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `phpblog`
+-- Base de données :  `blog`
 --
 
 -- --------------------------------------------------------
@@ -67,7 +67,27 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'dsgdg', 'dsfdsf'),
+(2, 'dsfds', 'dsfdsf'),
+(3, 'gds', 'dsgds'),
+(8, 'dfgdfgdfgdfgdfgdfg', 'dfgdfgdfgdf'),
+(17, 'aa', 'aa'),
+(22, 'azaz', 'azazza'),
+(26, 'aaaaaa', 'aaaaaaaaa'),
+(28, 'dfds', 'dsfdsfdsfds'),
+(30, 'jhjj', 'jjj'),
+(32, 'gggg', 'ggg'),
+(33, 'azraz', 'azeaz'),
+(34, 'azeaz', 'azeaz'),
+(36, 'rrr', 'rrr'),
+(38, 'aaaaa', 'aaaaaa');
 
 --
 -- Contraintes pour les tables déchargées

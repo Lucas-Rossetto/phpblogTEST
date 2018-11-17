@@ -3,11 +3,11 @@
         <h1>Se connecter </h1>
         <form action="#" method="post">
             <div class ="form-group">
-                <label for ="Pseudo ou mail ">Pseudo ou mail</label>
+                <label for ="Pseudo ou mail ">Nom</label>
                 <input class='form-control' type = "text" name ="username">
             </div>
             <div class ="form-group">
-                <label for ="password">Mot de passe <a href ="index.php?page=forget">(J'ai oublié mon compte)</a></label>
+                <label for ="password">Mot de passe</label>
                 <input class='form-control' type = "password" name = "password">
             </div>
             <div class="form-group">

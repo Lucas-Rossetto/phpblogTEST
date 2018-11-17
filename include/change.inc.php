@@ -1,35 +1,28 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alili
- * Date: 31/01/2018
- * Time: 20:44
- */
-
     if(isset($_POST['change']) && !empty($_GET['id'])){
             $tabErreur = array();
-            $id_user = $_SESSION['auth']['ID_USER'];
-            $pseudo = $_POST['pseudo'];
-            if($_POST['pseudo'] == ""){
-                $tabErreur['pseudo'] = 'veuillez saisir votre pseudo ';
+            $id_user = $_SESSION['auth']['id'];
+            $name = $_POST['name'];
+            if($_POST['name'] == ""){
+                $tabErreur['name'] = 'veuillez saisir votre nom ';
             } else {
                 $pdo = Database::connect();
-                $req = $pdo -> prepare('SELECT ID_USER From t_users where pseudo = ?');
-                $req -> execute([$_POST['pseudo']]);
+                $req = $pdo -> prepare('SELECT id From user where username = ?');
+                $req -> execute([$_POST['name']]);
                 $user = $req -> fetch();
                 if($user){
-                    $tabErreur['pseudo'] = "Ce Pseudo est déja pris ";
+                    $tabErreur['name'] = "Ce nom est déja pris ";
                 }
                 Database::disconnect();
             }
 
             if(empty($tabErreur)){
                 $pdo = Database::connect();
-                $sql = $pdo -> prepare('UPDATE t_users set PSEUDO = ? WHERE ID_USER = ?');
+                $sql = $pdo -> prepare('UPDATE user set username = ? WHERE id = ?');
                 $sql -> execute(array($pseudo,$id_user));
                 Database::disconnect();
                 $_SESSION['flash']['success'] = "Votre pseudo bien été modifié";
-                echo '<script>redirection("index.php?page=moncompte")</script>';
+                echo header('Location: index.php?page=mocompte');
                 exit();
             }
         }

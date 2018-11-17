@@ -8,30 +8,21 @@
         <tr style="font-weight: bold;">
             <th>ID</th>
             <th>Nom</th>
-            <th>Prenom</th>
-            <th>Pseudo</th>
-            <th>E-mail</th>
-            <th>Role</th>
-            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         <?php
         $db = Database::connect();
-        $statement = $db->query('SELECT * FROM t_users ORDER by T_ROLES_ID_ROLE');
+        $statement = $db->query('SELECT * FROM user');
 
         while($user = $statement->fetch())
         {
             $post  =  '<tr>
-                        <td>'. $user['ID_USER'] .'</td>
-                        <td>'. $user['USERNAME'].'</td>
-                        <td>'. $user['USERFNAME'].'</td>
-                        <td>'. $user['PSEUDO']. '</td>
-                        <td>'. $user['USERMAIL'] . '</td>
-                        <td>'. findRole($user['T_ROLES_ID_ROLE'],$db). '</td>
+                        <td>'. $user['id'] .'</td>
+                        <td>'. $user['username'].'</td>
                         <td>
-                        <a class="btn btn-primary" href="index.php?page=update_user&amp;id='.$user['ID_USER'].'"><span class="glyphicon glyphicon-pencil"></span> Ajouter un rôle</a>
-                        <a class="btn btn-danger" href="index.php?page=delete_user&amp;id='.$user['ID_USER'].'"><span class="glyphicon glyphicon-remove"></span> Supprimer ce rôle</a>
+                        <a class="btn btn-primary" href="index.php?page=update_user&amp;id='.$user['id'].'"><span class="glyphicon glyphicon-pencil"></span> Ajouter un rôle</a>
+                        <a class="btn btn-danger" href="index.php?page=delete_user&amp;id='.$user['id'].'"><span class="glyphicon glyphicon-remove"></span> Supprimer ce rôle</a>
                         </td> 
                        </tr>';
             echo $post;

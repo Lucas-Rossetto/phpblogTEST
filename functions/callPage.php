@@ -14,7 +14,4 @@ function callPage() {
     if (in_array($page, $incFiles)) {
         include($page);
     }
-    else {
-        include("./include/default.inc.php");
-    }
 }

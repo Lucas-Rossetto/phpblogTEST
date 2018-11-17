@@ -1,2 +1,0 @@
-# NFactoryBlog
-Exercice blog NFactory 
